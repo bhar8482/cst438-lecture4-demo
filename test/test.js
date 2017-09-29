@@ -51,7 +51,7 @@ var stub = sinon.stub(getty, "makeApiRequest").callsFake(function(callback) {
     
 describe("Getty api call", function() {
     
-    it("should return without errors", function(done) {
+    it("should return imageUri that is not null", function(done) {
         
         getty.makeApiRequest(function(error, imgURI) {
             //console.log("tweets: " + tweets.length); 
@@ -62,6 +62,20 @@ describe("Getty api call", function() {
         });
     }); 
     
+// }); 
+
     
+// describe("Getty api call to check that error is null, no errors", function() {
     
+    it("should return without errors", function(done) {
+        
+        getty.makeApiRequest(function(error, imgURI) {
+            //console.log("tweets: " + tweets.length); 
+            console.log("error: " + error); 
+            
+            expect(error).to.be.a('null'); 
+            done(); 
+        });
+    }); 
 }); 
+
